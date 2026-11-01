@@ -44,6 +44,39 @@ survives growth, and the push that triggered it then has a free slot at index
 - **Space:** O(capacity) for the backing array, which is less than 2n after
   growth. A resize temporarily holds both the old and the new array.
 
+## Follow-ups
+
+### Related problems
+
+- **Min Stack**
+- **Design Circular Queue**
+- **Design Circular Deque**
+- **Design HashMap**
+
+### Variations
+
+- Shrink the capacity on `popback`: when should it shrink, and how do you
+  avoid repeated resizing when pushes and pops alternate around the threshold?
+- Insert and remove at an arbitrary index: what do they cost?
+- How would you support push and pop at both ends in O(1)?
+- A generic `DynamicArray<T>`: what changes, given generic array creation and
+  references left behind in popped slots?
+
+### Growth and limits
+
+- How do a growth factor of 1.5, a factor of 2, and a fixed increment compare
+  in amortized cost and wasted memory?
+- What happens when doubling the capacity approaches `Integer.MAX_VALUE`?
+- Can `pushback` be O(1) in the worst case, not just amortized?
+
+### Java specifics
+
+- How does `java.util.ArrayList` handle initial capacity, growth, and
+  modification during iteration?
+- What goes wrong if several threads call `pushback` concurrently, and how
+  would you make it safe?
+- How would you make the class `Iterable`?
+
 ## References
 
 - [`System.arraycopy`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/System.html#arraycopy(java.lang.Object,int,java.lang.Object,int,int))
