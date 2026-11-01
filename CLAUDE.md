@@ -60,6 +60,7 @@ templates/java-problem/     # skeleton, including the README template
 1. **Scaffold** (only when I ask for a problem): copy the template, write a short original summary in the problem's `README.md`, add a stub class whose methods `throw new UnsupportedOperationException("TODO")`, a test class annotated `@Disabled("not started")` that always includes the problem's examples as tests, a **Scaffold** row under its topic in the root README, and a local `NOTES.md`. Create one problem at a time; don't pre-populate exercises.
 2. **Attempt:** I remove `@Disabled` and write the solution.
 3. **Document:** I add the approach, correctness argument, and complexity I want to publish to the problem's `README.md` (sections in the template), and mark it **Implemented** once all its tests are enabled and passing.
+4. **Follow-ups:** after implementing, add a Follow-ups section to the problem's `README.md` with related problems and likely interview follow-up questions. Never add it at scaffold time, because some follow-ups hint at the solution.
 
 Scaffolding (Gradle files, packages, signatures, stubs, test skeletons) is fine when requested. Never fill in a stub.
 
@@ -87,7 +88,8 @@ After any code change, run `./gradlew :<problem>:test` (or `./gradlew test --con
 Tracked files contain only professional, technically useful material that I explicitly choose to publish: original problem summaries, solutions, tests, technical explanations, complexity, and build configuration.
 
 - A problem's `README.md` reads like concise engineering notes accompanying a solution: neutral and professional, focused on correctness reasoning, invariants, complexity, and trade-offs.
-- Problem READMEs follow `templates/java-problem/README.md`: title, topic, difficulty, summary; after implementing, approach, correctness, complexity, and optional references.
+- Problem READMEs follow `templates/java-problem/README.md`: title, topic, difficulty, summary; after implementing, approach, correctness, complexity, follow-ups, and optional references.
+- Follow-ups list related problems by name (no links to paid platforms) and interview questions grouped by theme: variations, constraints, scale, Java specifics. List questions without answers; add a short, verified answer only once a follow-up has been worked through.
 - No personal learning history: no attempts, debugging stories, help received, self-assessments, or practice metrics. The root README groups problems by topic with difficulty and implementation status (Implemented · Scaffold) only.
 - Never copy NeetCode Pro or other paid course material, and don't link to NeetCode.
 - Never fabricate insights or performance results. Link claims to the most specific authoritative reference (Java API/JLS, official documentation); verify links.
