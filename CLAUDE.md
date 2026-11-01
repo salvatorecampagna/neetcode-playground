@@ -38,20 +38,20 @@ Don't skip levels or reveal later steps in an earlier hint. If I ask a specific 
 
 ## Layout
 
-Each problem is a **standalone Gradle project** (Java 25, JUnit 5). The root has only docs (`README.md`, `CLAUDE.md`), `.gitignore`, and `templates/`; there is no root build.
+One **multi-project Gradle build** (Java 25, JUnit 5). `settings.gradle.kts` includes every `problems/<topic>/<problem>` folder automatically as a subproject named after the problem folder (`:contains-duplicate`); shared configuration lives in the root `build.gradle.kts`. Problems have no build files of their own.
 
 ```
+build.gradle.kts, settings.gradle.kts, gradlew, gradle/wrapper/
 problems/<topic>/<problem>/
   README.md                 # public: summary; after implementing, approach, correctness, complexity
   NOTES.md                  # local only (see "Local notes")
-  gradlew, gradle/wrapper/, settings.gradle.kts, build.gradle.kts
   src/main/java/neetcode/<topic>/<problem>/<ClassName>.java
   src/test/java/neetcode/<topic>/<problem>/<ClassName>Test.java
 templates/java-problem/     # skeleton, including the README template
 ```
 
 - `<topic>`: the NeetCode section in kebab-case (`arrays-and-hashing`, `two-pointers`, `arrays` for the DSA for Beginners course).
-- `<problem>`: the problem name in kebab-case (`contains-duplicate`).
+- `<problem>`: the problem name in kebab-case (`contains-duplicate`); it must be unique across topics because it becomes the project name.
 - Package: `neetcode.<topic>.<problem>` with the dashes removed.
 - Class: the problem name in PascalCase; tests are `<ClassName>Test`.
 
@@ -71,7 +71,7 @@ Scaffolding (Gradle files, packages, signatures, stubs, test skeletons) is fine 
 
 ## Validation
 
-Run `./gradlew test` inside the problem's folder after any code change and report the result. Separate expected outcomes (a `@Disabled` scaffold, a stub that throws) from unexpected failures; for the latter, show the failing output. To check everything, use the README's loop over `problems/*/*/`: it exits nonzero if any project fails and lists skipped tests, so never report a scaffold's skipped tests as passing. Don't add CI, scripts, hooks, or a root build without asking.
+After any code change, run `./gradlew :<problem>:test` (or `./gradlew test --continue` for everything) from the root and report the result. Separate expected outcomes (a `@Disabled` scaffold, a stub that throws) from unexpected failures; for the latter, show the failing output. Skipped tests are listed as `SKIPPED`: never report a scaffold's skipped tests as passing. Don't add CI, scripts, hooks, or new build logic without asking.
 
 ## Java review standards
 

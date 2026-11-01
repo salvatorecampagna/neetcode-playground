@@ -6,9 +6,9 @@
 [![Gradle 9.8.2](https://img.shields.io/badge/Gradle-9.8.2-02303A?logo=gradle&logoColor=white)](https://docs.gradle.org/9.8.2/userguide/userguide.html)
 [![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?logo=junit5&logoColor=white)](https://docs.junit.org/5.13.4/user-guide/)
 
-Java solutions to NeetCode problems. Each problem is a small, self-contained
-Gradle project with JUnit 5 tests and a short write-up covering the approach,
-why it is correct, and its time and space complexity.
+Java solutions to NeetCode problems. Each problem has its own folder with the
+solution, JUnit 5 tests, and a short write-up covering the approach, why it is
+correct, and its time and space complexity.
 
 ## Problems
 
@@ -29,36 +29,30 @@ stub, and tests that are disabled until the solution is written.
 
 ## Running the tests
 
-Requires JDK 25. Each problem ships its own Gradle wrapper, so nothing else
-needs to be installed.
-
-One problem:
+Requires JDK 25. The Gradle wrapper downloads Gradle on first use.
 
 ```sh
-cd problems/arrays/design-dynamic-array
-./gradlew test
+./gradlew test --continue                  # every problem
+./gradlew :design-dynamic-array:test       # one problem, by folder name
 ```
 
-Every problem. The command exits nonzero if any project fails, and lists every
-test as `PASSED`, `SKIPPED`, or `FAILED`:
-
-```sh
-( status=0
-  for p in problems/*/*/; do
-    echo "== $p"
-    (cd "$p" && ./gradlew test --rerun --console=plain) || { echo "FAILED: $p"; status=1; }
-  done
-  exit $status )
-```
+Gradle exits nonzero if any test fails, and `--continue` keeps running the
+remaining problems. Each test is listed as `PASSED`, `SKIPPED`, or `FAILED`;
+add `--rerun` to see the list again when nothing has changed.
 
 ## Layout
 
+One multi-project Gradle build: every `problems/<topic>/<problem>` folder is a
+subproject named after the problem folder, picked up automatically by
+`settings.gradle.kts`. Shared configuration lives in the root
+`build.gradle.kts`.
+
 ```
+build.gradle.kts, settings.gradle.kts, gradlew, gradle/wrapper/
 problems/
   <topic>/                          # NeetCode section, kebab-case (arrays-and-hashing)
     <problem>/                      # problem name, kebab-case (contains-duplicate)
       README.md                     # summary, approach, correctness, complexity
-      gradlew, gradle/wrapper/, settings.gradle.kts, build.gradle.kts
       src/main/java/neetcode/<topic>/<problem>/<ClassName>.java
       src/test/java/neetcode/<topic>/<problem>/<ClassName>Test.java
 templates/
@@ -66,13 +60,13 @@ templates/
 ```
 
 Packages drop the dashes: `arrays-and-hashing/contains-duplicate` is package
-`neetcode.arraysandhashing.containsduplicate`.
+`neetcode.arraysandhashing.containsduplicate`. Problem folder names must be
+unique across topics, because they become project names.
 
 ## Adding a problem
 
 ```sh
-T=arrays-and-hashing P=contains-duplicate      # topic and problem folders
-D=problems/$T/$P
+D=problems/arrays-and-hashing/contains-duplicate   # problems/<topic>/<problem>
 mkdir -p "$D" && cp -R templates/java-problem/. "$D"
 rm "$D"/src/main/java/.gitkeep "$D"/src/test/java/.gitkeep
 ```
