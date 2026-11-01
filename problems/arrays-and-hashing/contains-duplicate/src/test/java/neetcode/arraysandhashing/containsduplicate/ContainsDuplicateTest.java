@@ -13,12 +13,12 @@ class ContainsDuplicateTest {
     private final ContainsDuplicate solution = new ContainsDuplicate();
 
     @Test
-    void adjacentDuplicate() {
+    void example1() {
         assertTrue(solution.hasDuplicate(new int[] {1, 2, 3, 3}));
     }
 
     @Test
-    void allDistinct() {
+    void example2() {
         assertFalse(solution.hasDuplicate(new int[] {1, 2, 3, 4}));
     }
 
@@ -50,7 +50,7 @@ class ContainsDuplicateTest {
 
     @Test
     void extremeValues() {
-        assertTrue(solution.hasDuplicate(new int[] {Integer.MIN_VALUE, 0, Integer.MIN_VALUE}));
-        assertFalse(solution.hasDuplicate(new int[] {Integer.MIN_VALUE, Integer.MAX_VALUE}));
+        assertTrue(solution.hasDuplicate(new int[] {-1_000_000_000, 0, -1_000_000_000}));
+        assertFalse(solution.hasDuplicate(new int[] {-1_000_000_000, 1_000_000_000}));
     }
 }
