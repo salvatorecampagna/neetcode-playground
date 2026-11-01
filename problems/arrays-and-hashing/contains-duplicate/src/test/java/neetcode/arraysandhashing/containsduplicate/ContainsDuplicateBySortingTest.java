@@ -1,9 +1,10 @@
 package neetcode.arraysandhashing.containsduplicate;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class ContainsDuplicateBySortingTest {
 
@@ -49,5 +50,14 @@ class ContainsDuplicateBySortingTest {
     void extremeValues() {
         assertTrue(solution.hasDuplicateBySorting(new int[] {-1_000_000_000, 0, -1_000_000_000}));
         assertFalse(solution.hasDuplicateBySorting(new int[] {-1_000_000_000, 1_000_000_000}));
+    }
+
+    @Test
+    void arrayIsSortedHasNoDuplicate() {
+        int[] a = new int[] {1, 10, 7, 4, 5, 8, 9, 12, 3, 0};
+        int[] b = a.clone();
+        Arrays.sort(b);
+        assertFalse(solution.hasDuplicateBySorting(a));
+        assertArrayEquals(b, a);
     }
 }
