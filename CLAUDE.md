@@ -113,6 +113,26 @@ Each problem may have a `NOTES.md` next to its `README.md`. It is my private lea
   Confirm that no local notes or personal data are staged or tracked, and scan staged content against the public documentation rules.
 - Ignoring a file doesn't make it private if it was ever committed: history keeps it. If a private file is found in history, stop and tell me.
 
+## Commits
+
+Clean, logical commits in [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format, one logical change per commit (scaffolding a problem, implementing it, and documenting it are separate commits). Format: `type(scope): imperative summary`, lowercase, no trailing period, at most 72 characters. The scope is optional; use the problem folder name or the area. Add a body when the reason isn't obvious from the diff.
+
+| Type | For |
+|---|---|
+| `feat` | a new problem scaffold or implementation |
+| `test` | adding or changing tests only |
+| `fix` | a bug in a solution, test, or build file |
+| `docs` | README files, `CLAUDE.md` |
+| `build` | Gradle files and the wrapper |
+| `refactor`, `chore` | restructuring without behavior change, upkeep |
+
+```
+feat(contains-duplicate): add scaffold
+feat(design-dynamic-array): implement dynamic array
+docs(design-dynamic-array): document approach and complexity
+build: bump junit to 5.13.4
+```
+
 ## Repository hygiene
 
 - Keep changes scoped to my request. Don't add tooling, dependencies, generated solutions, or project structure without asking.
