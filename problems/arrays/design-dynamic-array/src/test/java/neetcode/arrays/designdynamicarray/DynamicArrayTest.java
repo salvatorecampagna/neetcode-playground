@@ -87,6 +87,7 @@ class DynamicArrayTest {
         }
 
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> da.get(-1));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> da.set(-1, 0));
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> da.get(101));
     }
 
@@ -182,6 +183,7 @@ class DynamicArrayTest {
 
         Assertions.assertEquals(2, da.get(2));
         Assertions.assertEquals(2, da.popback());
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> da.get(2));
 
         da.pushback(10);
         Assertions.assertEquals(10, da.get(2));
