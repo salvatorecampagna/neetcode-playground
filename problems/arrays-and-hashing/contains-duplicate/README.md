@@ -55,6 +55,46 @@ Three implementations in `ContainsDuplicate`:
   pressure matters more than the log factor. A single primitive `int[]` is far
   more compact than a hash set of boxed `Integer` values, and it avoids hashing.
 
+## Follow-ups
+
+### Related problems
+
+- **Contains Duplicate II:** equal values at most `k` indices apart.
+- **Contains Duplicate III:** values differing by at most `t`, at most `k`
+  indices apart.
+- **Valid Anagram**
+- **Find the Duplicate Number**
+- **Find All Duplicates in an Array**
+
+### Variations
+
+- Return the duplicated values, how many times each occurs, or the first value
+  that repeats.
+
+### Constraints
+
+- Can it be done in O(1) extra space without modifying the input? At what cost?
+- What changes if the values lie in a small known range, such as 0 to 1,000 or
+  1 to n?
+- How much memory does a bit array over the full `int` range take, and when is
+  it reasonable?
+
+### Scale
+
+- What if the input is a stream, or does not fit in memory?
+- What if the data is spread across several machines?
+- If a small false-positive rate is acceptable, which structure uses much less
+  memory?
+
+### Java specifics
+
+- Is `Arrays.stream(nums).distinct().count()` a good idea? What does it cost?
+- How can boxing be avoided while keeping a hash-based approach?
+- For objects instead of `int`, which contract must the element class honor,
+  and what happens if an element is mutated after insertion?
+- What happens with inputs crafted to collide in the hash table?
+- Can the check be parallelized, and with which tools?
+
 ## References
 
 - [`Set.add`](https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html#add(E)):
