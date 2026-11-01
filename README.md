@@ -26,7 +26,7 @@ stub, and tests that are disabled until the solution is written.
 
 | Problem | Difficulty | Status |
 |---|---|---|
-| [Contains Duplicate](problems/arrays-and-hashing/contains-duplicate) | Easy | Scaffold |
+| [Contains Duplicate](problems/arrays-and-hashing/contains-duplicate) | Easy | Implemented |
 
 ## Running the tests
 
