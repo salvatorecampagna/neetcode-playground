@@ -1,7 +1,5 @@
 package neetcode.arrays.designdynamicarray;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -94,12 +92,11 @@ class DynamicArrayTest {
 
     @Test
     void testPushBack() {
-        var da  = new DynamicArray(10);
+        var da = new DynamicArray(10);
 
         for (int i = 0; i < 10; i++) {
             da.pushback(i);
         }
-
 
         for (int i = 0; i < 10; i++) {
             Assertions.assertEquals(i, da.get(i));
@@ -119,6 +116,9 @@ class DynamicArrayTest {
 
         Assertions.assertEquals(128, da.getCapacity());
         Assertions.assertEquals(100, da.getSize());
+        for (int i = 0; i < 100; i++) {
+            Assertions.assertEquals(i, da.get(i));
+        }
     }
 
     @Test
@@ -142,7 +142,7 @@ class DynamicArrayTest {
         var da = new DynamicArray(10);
 
         for (int i = 0; i < 100; i++) {
-            if (i != 0  && i % 10 == 0) {
+            if (i != 0 && i % 10 == 0) {
                 da.popback();
             }
             da.pushback(i);
@@ -167,24 +167,8 @@ class DynamicArrayTest {
 
         for (int i = 5; i < 20; i++) {
             int finalI = i;
-            int finalI1 = i;
-            Assertions.assertThrows(IndexOutOfBoundsException.class, () -> da.set(finalI, finalI1));
+            Assertions.assertThrows(IndexOutOfBoundsException.class, () -> da.set(finalI, finalI));
             Assertions.assertThrows(IndexOutOfBoundsException.class, () -> da.get(finalI));
-        }
-    }
-
-    @Test
-    void testValuesAfterResize() {
-        var da = new DynamicArray(10);
-
-        for (int i = 0; i < 100; i++) {
-            da.pushback(i);
-        }
-
-        Assertions.assertEquals(160, da.getCapacity());
-        Assertions.assertEquals(100, da.getSize());
-        for (int i = 0; i < 100; i++) {
-            Assertions.assertEquals(i, da.get(i));
         }
     }
 
