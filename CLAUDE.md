@@ -22,6 +22,12 @@ Everything committed to Git, including this file, is public.
 
 **Debrief:** Give an honest assessment: what I did, where I struggled, the transferable pattern, and what to revisit. Don't invent details about my process.
 
+**Cold recall:** I revisit a solved problem without opening its solution, README, or local notes. Don't show or quote them. Restate the problem, let me reconstruct and explain the approach from scratch, then evaluate whether I could do it unaided.
+
+**Readiness check:** After I finish a problem, ask me to explain the invariant, derive time and space complexity, name the important edge cases, give a counterexample to a tempting wrong approach, and discuss one change in the constraints. Evaluate my explanation; don't write it for me. Passing tests alone never makes a problem interview-ready.
+
+**Transfer:** After a successful readiness check or cold recall, suggest one related problem or variation that exercises the same principle in a different setting, without revealing its key insight.
+
 Candid feedback belongs in the conversation and in local notes, never in tracked files.
 
 ## Progressive hints
@@ -57,17 +63,20 @@ templates/java-problem/     # skeleton, including the README template
 
 ## Exercise lifecycle
 
-1. **Scaffold** (only when I ask for a problem): copy the template, write a short original summary in the problem's `README.md`, add a stub class whose methods `throw new UnsupportedOperationException("TODO")`, a test class annotated `@Disabled("not started")` that always includes the problem's examples as tests, a **Scaffold** row under its topic in the root README, and a local `NOTES.md`. Create one problem at a time; don't pre-populate exercises.
-2. **Attempt:** I remove `@Disabled` and write the solution.
+1. **Scaffold** (only when I ask for a problem): copy the template, write a short original summary in the problem's `README.md`, add a stub class whose methods `throw new UnsupportedOperationException("TODO")`, a test class annotated `@Disabled("not started")` containing only the problem's examples as tests, a **Scaffold** row under its topic in the root README, and a local `NOTES.md`. Create one problem at a time; don't pre-populate exercises.
+2. **Attempt:** I remove `@Disabled`, propose my own edge cases and tests, and write the solution.
 3. **Document:** I add the approach, correctness argument, and complexity I want to publish to the problem's `README.md` (sections in the template), and mark it **Implemented** once all its tests are enabled and passing.
 4. **Follow-ups:** after implementing, add a Follow-ups section to the problem's `README.md` with related problems and likely interview follow-up questions. Never add it at scaffold time, because some follow-ups hint at the solution.
+5. **Readiness check, then cold recall and transfer later** (see Modes). A problem being Implemented in the README says nothing about readiness.
 
 Scaffolding (Gradle files, packages, signatures, stubs, test skeletons) is fine when requested. Never fill in a stub.
 
 ## Tests
 
 - JUnit 5 (Jupiter). Tests describe expected behavior—examples, boundaries, empty/single inputs, duplicates, negatives, extreme values—without encoding or hinting at the algorithm.
-- Every scaffold includes one test per example in the problem statement (`example1`, `example2`, …), asserting the stated output; for design problems, replay the example's operation sequence call by call. Edge-case tests come in addition to these. Keep test inputs within the problem's constraints.
+- Every scaffold includes one test per example in the problem statement (`example1`, `example2`, …), asserting the stated output; for design problems, replay the example's operation sequence call by call. Keep test inputs within the problem's constraints.
+- Scaffolds contain only the examples. Ask me to identify edge cases before adding more tests; in a review, point out missing cases after I've proposed mine. In mock interviews, don't supply edge cases unless I ask, and save missed ones for the debrief.
+- Once a problem is solved and I've stated its invariants, suggest suitable properties, metamorphic relations (e.g. permutation invariance), differential tests across implementations, or comparison against a reference model. Don't write property-based tests unless I ask, and propose a library such as jqwik only when it adds real value (it is a new dependency, so ask first).
 - Unfinished problems keep tests `@Disabled` so their build stays green.
 - Assert exception types, not full messages.
 
@@ -87,7 +96,8 @@ After any code change, run `./gradlew :<problem>:test` (or `./gradlew test --con
 
 Tracked files contain only professional, technically useful material that I explicitly choose to publish: original problem summaries, solutions, tests, technical explanations, complexity, and build configuration.
 
-- A problem's `README.md` reads like concise engineering notes accompanying a solution: neutral and professional, focused on correctness reasoning, invariants, complexity, and trade-offs.
+- A problem's `README.md` reads like concise engineering notes accompanying a solution: neutral and professional, focused on correctness reasoning, invariants, complexity, and trade-offs. Distinguish asymptotic complexity from practical performance, and state space precisely (application-level structures vs. memory used internally by library calls).
+- Detailed reasoning lives in the README. Code comments stay short and say only what the code can't: a method's distinguishing property or a non-obvious trade-off. Don't duplicate the README's analysis in comments.
 - Problem READMEs follow `templates/java-problem/README.md`: title, topic, difficulty, summary; after implementing, approach, correctness, complexity, follow-ups, and optional references.
 - Follow-ups list related problems by name (no links to paid platforms) and interview questions grouped by theme: variations, constraints, scale, Java specifics. List questions without answers; add a short, verified answer only once a follow-up has been worked through.
 - No personal learning history: no attempts, debugging stories, help received, self-assessments, or practice metrics. The root README groups problems by topic with difficulty and implementation status (Implemented · Scaffold) only.
@@ -101,6 +111,7 @@ Tracked files contain only professional, technically useful material that I expl
 Each problem may have a `NOTES.md` next to its `README.md`. It is my private learning journal, excluded from Git through `.git/info/exclude` (not `.gitignore`), and is never committed.
 
 - Never copy its contents into tracked files.
+- Assessments, readiness checks, cold-recall outcomes, and revisit recommendations go here, never in tracked files or commit messages.
 - Write it from what actually happened in our sessions; never invent experiences.
 - Number learnings `### #1 — Descriptive title`, `### #2 — …` within each problem, appending rather than renumbering, and end each with a `**References:**` line linking the most specific authoritative page.
 
