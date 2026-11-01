@@ -12,7 +12,7 @@ class ContainsDuplicate {
     // Space complexity: O(N) in the worst case (no duplicates), when every
     // element is stored. Elements are boxed to Integer, so the constant factor is
     // much larger than for an int[] of the same length.
-    public boolean (int[] nums) {
+    public boolean hasDuplicate(int[] nums) {
         // NOTE: the set is deliberately not presized to nums.length. Presizing
         // avoids rehashing when there are no duplicates, but allocates a table for
         // every element up front, even when a duplicate appears early and
