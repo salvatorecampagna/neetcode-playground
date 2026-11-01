@@ -47,10 +47,10 @@ class DynamicArray {
     }
 
     private void resize() {
-        int new_capacity =  this.array.length * 2;
-        int [] new_array = new int[new_capacity];
-        System.arraycopy(this.array, 0, new_array, 0, this.size);
-        this.array = new_array;
+        int newCapacity =  this.array.length * 2;
+        int [] newArray = new int[newCapacity];
+        System.arraycopy(this.array, 0, newArray, 0, this.size);
+        this.array = newArray;
     }
 
     public int getSize() {
