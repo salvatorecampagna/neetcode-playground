@@ -41,8 +41,10 @@ survives growth, and the push that triggered it then has a free slot at index
   `pushback` is O(1) amortized: a resize copies all n elements, but because
   the capacity doubles, the copies across n pushes total less than 2n, so n
   pushes cost O(n) overall. A single push that triggers a resize is O(n).
-- **Space:** O(capacity) for the backing array, which is less than 2n after
-  growth. A resize temporarily holds both the old and the new array.
+- **Space:** O(capacity) for the backing array. With doubling and no
+  shrinking, the capacity is O(the maximum size reached), not necessarily
+  O(the current size): popping elements never releases memory. A resize
+  temporarily holds both the old and the new array.
 
 ## Follow-ups
 
