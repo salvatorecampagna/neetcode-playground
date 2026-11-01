@@ -41,9 +41,7 @@ class DynamicArray {
         if (this.size < 1) {
             throw new NoSuchElementException("popback() on empty array");
         }
-        int value = this.array[this.size - 1];
-        this.size--;
-        return value;
+        return this.array[--this.size];
     }
 
     private void resize() {
