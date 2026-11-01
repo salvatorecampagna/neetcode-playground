@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
 class DynamicArrayTest {
 
     @Test
-    public void testExample1() {
+    void testExample1() {
         var da = new DynamicArray(1);
 
         Assertions.assertEquals(0, da.getSize());
@@ -19,7 +19,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testExample2() {
+    void testExample2() {
         var da = new DynamicArray(1);
 
         da.pushback(1);
@@ -29,7 +29,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testExample3() {
+    void testExample3() {
         var da = new DynamicArray(1);
 
         Assertions.assertEquals(0, da.getSize());
@@ -53,14 +53,14 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testInvalidCapacity() {
+    void testInvalidCapacity() {
         for (int invalidCapacity: Arrays.asList(Integer.MIN_VALUE, -1, 0)) {
             Assertions.assertThrows(IllegalArgumentException.class, () -> new DynamicArray(invalidCapacity));
         }
     }
 
     @Test
-    public void testMinimumCapacity() {
+    void testMinimumCapacity() {
         var da = new DynamicArray(1);
 
         Assertions.assertEquals(1, da.getCapacity());
@@ -68,7 +68,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testEmpty() {
+    void testEmpty() {
         var da = new DynamicArray(10);
 
         Assertions.assertEquals(10, da.getCapacity());
@@ -76,7 +76,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testSetAndGet() {
+    void testSetAndGet() {
         var da = new DynamicArray(100);
 
         for (int i = 0; i < 100; i++) {
@@ -93,7 +93,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testPushBack() {
+    void testPushBack() {
         var da  = new DynamicArray(10);
 
         for (int i = 0; i < 10; i++) {
@@ -110,7 +110,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testResize() {
+    void testResize() {
         var da = new DynamicArray(1);
 
         for (int i = 0; i < 100; i++) {
@@ -122,7 +122,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testPopBack() {
+    void testPopBack() {
         var da = new DynamicArray(10);
 
         for (int i = 0; i < 10; i++) {
@@ -138,7 +138,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testPushBackPopBack() {
+    void testPushBackPopBack() {
         var da = new DynamicArray(10);
 
         for (int i = 0; i < 100; i++) {
@@ -152,7 +152,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testGetSetPartlyFilled() {
+    void testGetSetPartlyFilled() {
         var da = new DynamicArray(10);
 
         for (int i = 0; i < 5; i++) {
@@ -174,7 +174,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testValuesAfterResize() {
+    void testValuesAfterResize() {
         var da = new DynamicArray(10);
 
         for (int i = 0; i < 100; i++) {
@@ -189,7 +189,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    public void testPushAfterPop() {
+    void testPushAfterPop() {
         var da = new DynamicArray(10);
 
         for (int i = 0; i < 3; i++) {
