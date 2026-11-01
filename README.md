@@ -27,6 +27,7 @@ stub, and tests that are disabled until the solution is written.
 | Problem | Difficulty | Status |
 |---|---|---|
 | [Contains Duplicate](problems/arrays-and-hashing/contains-duplicate) | Easy | Implemented |
+| [Valid Anagram](problems/arrays-and-hashing/valid-anagram) | Easy | Implemented |
 
 ## Running the tests
 
