@@ -33,8 +33,8 @@ Three implementations in `ContainsDuplicate`:
 | Method | Time | Extra space | Modifies input |
 |---|---|---|---|
 | `hasDuplicate` | O(n) average | O(n) | No |
-| `hasDuplicateBySorting` | O(n log n) | No auxiliary collection | Yes |
-| `hasDuplicateBySortingAndCopying` | O(n log n) | O(n) | No |
+| `hasDuplicateBySorting` | O(n log n) | None at application level, plus the sort's internal memory | Yes |
+| `hasDuplicateBySortingAndCopying` | O(n log n) | O(n) for the copy, plus the sort's internal memory | No |
 
 - **Hash set:** each `add` is O(1) on average. Resizing rehashes the set, but
   the capacity doubles, so the total over n inserts stays O(n). In the worst
@@ -46,9 +46,12 @@ Three implementations in `ContainsDuplicate`:
 
 ## Choosing an implementation
 
-- **Default: the hash set.** It is the fastest asymptotically, and it exits at
+- **Default: the hash set.** It has the best asymptotic time, and it exits at
   the first duplicate, so inputs with an early duplicate are very cheap. The
   sorting variants always pay the full sort, wherever the duplicate is.
+  Asymptotic time is not the whole story, though: sorting a primitive `int[]`
+  has better memory locality and no per-element allocation, so it can be
+  faster in practice on some inputs. Measure before relying on either.
 - **In-place sort:** when memory is tight and reordering the caller's array is
   acceptable. It allocates no auxiliary collection.
 - **Sort a copy:** when the input must not be modified and allocation or GC
