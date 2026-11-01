@@ -5,6 +5,7 @@
 [![Java 25](https://img.shields.io/badge/Java-25-ED8B00?logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/25/)
 [![Gradle 9.8.2](https://img.shields.io/badge/Gradle-9.8.2-02303A?logo=gradle&logoColor=white)](https://docs.gradle.org/9.8.2/userguide/userguide.html)
 [![JUnit 5](https://img.shields.io/badge/JUnit-5-25A162?logo=junit5&logoColor=white)](https://docs.junit.org/5.13.4/user-guide/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Java solutions to NeetCode problems. Each problem has its own folder with the
 solution, JUnit 5 tests, and a short write-up covering the approach, why it is
@@ -79,3 +80,8 @@ index above as a scaffold.
 Scaffolds keep their tests `@Disabled`, so the build stays green. Remove the
 annotation when starting the implementation, and mark the problem as
 implemented once all its tests are enabled and passing.
+
+## License
+
+[MIT](LICENSE). Problems are summarized in my own words; the original problem
+statements belong to NeetCode.
