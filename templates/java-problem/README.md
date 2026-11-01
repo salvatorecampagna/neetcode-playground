@@ -6,10 +6,22 @@
 
 The problem in one or two sentences, in my own words.
 
-<!-- After solving, add:
+<!-- After implementing, add:
+
 ## Approach
-The idea and the invariant that makes it correct.
+
+The idea in a few sentences.
+
+## Correctness
+
+The invariant or argument that makes the approach correct.
 
 ## Complexity
-Time and auxiliary space, with a one-line justification.
+
+- **Time:** O(...), with a one-line justification.
+- **Space:** O(...) auxiliary, with a one-line justification.
+
+## References
+
+Optional: only links that add value (Java API, JLS, algorithm sources).
 -->

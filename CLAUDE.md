@@ -42,7 +42,7 @@ Each problem is a **standalone Gradle project** (Java 25, JUnit 5). The root has
 
 ```
 problems/<topic>/<problem>/
-  README.md                 # public: summary, approach, complexity
+  README.md                 # public: summary; after implementing, approach, correctness, complexity
   NOTES.md                  # local only (see "Local notes")
   gradlew, gradle/wrapper/, settings.gradle.kts, build.gradle.kts
   src/main/java/neetcode/<topic>/<problem>/<ClassName>.java
@@ -57,9 +57,9 @@ templates/java-problem/     # skeleton, including the README template
 
 ## Exercise lifecycle
 
-1. **Scaffold** (only when I ask for a problem): copy the template, write a short original summary in the problem's `README.md`, add a stub class whose methods `throw new UnsupportedOperationException("TODO")`, a test class annotated `@Disabled("not started")`, a row in the root README table, and a local `NOTES.md`. Create one problem at a time; don't pre-populate exercises.
+1. **Scaffold** (only when I ask for a problem): copy the template, write a short original summary in the problem's `README.md`, add a stub class whose methods `throw new UnsupportedOperationException("TODO")`, a test class annotated `@Disabled("not started")`, a **Scaffold** row under its topic in the root README, and a local `NOTES.md`. Create one problem at a time; don't pre-populate exercises.
 2. **Attempt:** I remove `@Disabled` and write the solution.
-3. **Document:** I add the approach and complexity I want to publish to the problem's `README.md`.
+3. **Document:** I add the approach, correctness argument, and complexity I want to publish to the problem's `README.md` (sections in the template), and mark it **Implemented** once all its tests are enabled and passing.
 
 Scaffolding (Gradle files, packages, signatures, stubs, test skeletons) is fine when requested. Never fill in a stub.
 
@@ -71,7 +71,7 @@ Scaffolding (Gradle files, packages, signatures, stubs, test skeletons) is fine 
 
 ## Validation
 
-Run `./gradlew test` inside the problem's folder after any code change and report the result. Separate expected outcomes (a `@Disabled` scaffold, a stub that throws) from unexpected failures; for the latter, show the failing output. To check everything, the README has a one-line loop over `problems/*/*/`. Don't add CI, scripts, hooks, or a root build without asking.
+Run `./gradlew test` inside the problem's folder after any code change and report the result. Separate expected outcomes (a `@Disabled` scaffold, a stub that throws) from unexpected failures; for the latter, show the failing output. To check everything, use the README's loop over `problems/*/*/`: it exits nonzero if any project fails and lists skipped tests, so never report a scaffold's skipped tests as passing. Don't add CI, scripts, hooks, or a root build without asking.
 
 ## Java review standards
 
@@ -86,7 +86,8 @@ Run `./gradlew test` inside the problem's folder after any code change and repor
 Tracked files contain only professional, technically useful material that I explicitly choose to publish: original problem summaries, solutions, tests, technical explanations, complexity, and build configuration.
 
 - A problem's `README.md` reads like concise engineering notes accompanying a solution: neutral and professional, focused on correctness reasoning, invariants, complexity, and trade-offs.
-- No personal learning history: no attempts, debugging stories, help received, self-assessments, or practice metrics. The root README lists topic, problem, and difficulty only.
+- Problem READMEs follow `templates/java-problem/README.md`: title, topic, difficulty, summary; after implementing, approach, correctness, complexity, and optional references.
+- No personal learning history: no attempts, debugging stories, help received, self-assessments, or practice metrics. The root README groups problems by topic with difficulty and implementation status (Implemented · Scaffold) only.
 - Never copy NeetCode Pro or other paid course material, and don't link to NeetCode.
 - Never fabricate insights or performance results. Link claims to the most specific authoritative reference (Java API/JLS, official documentation); verify links.
 - Don't write conversation feedback into tracked files on your own initiative. Propose public text and let me decide.
