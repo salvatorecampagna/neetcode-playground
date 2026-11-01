@@ -60,4 +60,13 @@ class ContainsDuplicateBySortingTest {
         assertFalse(solution.hasDuplicateBySorting(a));
         assertArrayEquals(b, a);
     }
+
+    @Test
+    void arrayIsSortedHasDuplicate() {
+        int[] a = new int[] {1, 10, 7, 4, 5, 4, 9, 1, 3, 0};
+        int[] b = a.clone();
+        Arrays.sort(b);
+        assertTrue(solution.hasDuplicateBySorting(a));
+        assertArrayEquals(b, a);
+    }
 }
