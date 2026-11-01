@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 class DynamicArrayTest {
 
     @Test
-    void testExample1() {
+    void example1() {
         var da = new DynamicArray(1);
 
         Assertions.assertEquals(0, da.getSize());
@@ -17,7 +17,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    void testExample2() {
+    void example2() {
         var da = new DynamicArray(1);
 
         da.pushback(1);
@@ -27,7 +27,7 @@ class DynamicArrayTest {
     }
 
     @Test
-    void testExample3() {
+    void example3() {
         var da = new DynamicArray(1);
 
         Assertions.assertEquals(0, da.getSize());
