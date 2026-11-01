@@ -3,11 +3,8 @@ package neetcode.arraysandhashing.containsduplicate;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-// Remove @Disabled when you start the problem.
-@Disabled("not started")
 class ContainsDuplicateTest {
 
     private final ContainsDuplicate solution = new ContainsDuplicate();
