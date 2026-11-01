@@ -112,6 +112,9 @@ Each problem may have a `NOTES.md` next to its `README.md`. It is my private lea
   - `git ls-files '*NOTES.md'` (must print nothing)
   
   Confirm that no local notes or personal data are staged or tracked, and scan staged content against the public documentation rules.
+- Run the full test suite (`./gradlew test --continue`) immediately before every commit, on the exact files being committed. Files may have changed since the last run.
+- Before pushing, check out each new commit in a clean worktree and confirm it builds and passes. Push only after that check has succeeded, never in the same command.
+- Never force push or otherwise rewrite pushed history (no `--force`, `--force-with-lease`, rebasing or amending pushed commits). Fix mistakes with a new commit on top; if the remote has diverged, merge it and commit on top.
 - Ignoring a file doesn't make it private if it was ever committed: history keeps it. If a private file is found in history, stop and tell me.
 
 ## Commits
