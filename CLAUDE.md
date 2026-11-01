@@ -57,7 +57,7 @@ templates/java-problem/     # skeleton, including the README template
 
 ## Exercise lifecycle
 
-1. **Scaffold** (only when I ask for a problem): copy the template, write a short original summary in the problem's `README.md`, add a stub class whose methods `throw new UnsupportedOperationException("TODO")`, a test class annotated `@Disabled("not started")`, a **Scaffold** row under its topic in the root README, and a local `NOTES.md`. Create one problem at a time; don't pre-populate exercises.
+1. **Scaffold** (only when I ask for a problem): copy the template, write a short original summary in the problem's `README.md`, add a stub class whose methods `throw new UnsupportedOperationException("TODO")`, a test class annotated `@Disabled("not started")` that always includes the problem's examples as tests, a **Scaffold** row under its topic in the root README, and a local `NOTES.md`. Create one problem at a time; don't pre-populate exercises.
 2. **Attempt:** I remove `@Disabled` and write the solution.
 3. **Document:** I add the approach, correctness argument, and complexity I want to publish to the problem's `README.md` (sections in the template), and mark it **Implemented** once all its tests are enabled and passing.
 
@@ -66,6 +66,7 @@ Scaffolding (Gradle files, packages, signatures, stubs, test skeletons) is fine 
 ## Tests
 
 - JUnit 5 (Jupiter). Tests describe expected behavior—examples, boundaries, empty/single inputs, duplicates, negatives, extreme values—without encoding or hinting at the algorithm.
+- Every scaffold includes one test per example in the problem statement (`example1`, `example2`, …), asserting the stated output; for design problems, replay the example's operation sequence call by call. Edge-case tests come in addition to these. Keep test inputs within the problem's constraints.
 - Unfinished problems keep tests `@Disabled` so their build stays green.
 - Assert exception types, not full messages.
 
