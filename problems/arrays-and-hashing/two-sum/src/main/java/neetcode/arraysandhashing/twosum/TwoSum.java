@@ -51,10 +51,6 @@ class TwoSum {
         throw new IllegalArgumentException("unexpected input without solution");
     }
 
-    int[] twoSumBySortingPackedIndices(int[] nums, int target) {
-        throw new UnsupportedOperationException("TODO");
-    }
-
     private int[] sortedIndices(int i, int j) {
         return new int[]{Math.min(i, j), Math.max(i, j)};
     }
