@@ -31,6 +31,7 @@ stub, and tests that are disabled until the solution is written.
 | [Two Sum](problems/arrays-and-hashing/two-sum) | Easy | Implemented |
 | [Top K Frequent Elements](problems/arrays-and-hashing/top-k-frequent-elements) | Medium | Implemented |
 | [Group Anagrams](problems/arrays-and-hashing/group-anagrams) | Medium | Implemented |
+| [Encode and Decode Strings](problems/arrays-and-hashing/encode-and-decode-strings) | Medium | Implemented |
 
 ## Running the tests
 
