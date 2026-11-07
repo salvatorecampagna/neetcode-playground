@@ -28,6 +28,7 @@ stub, and tests that are disabled until the solution is written.
 |---|---|---|
 | [Contains Duplicate](problems/arrays-and-hashing/contains-duplicate) | Easy | Implemented |
 | [Valid Anagram](problems/arrays-and-hashing/valid-anagram) | Easy | Implemented |
+| [Two Sum](problems/arrays-and-hashing/two-sum) | Easy | Implemented |
 | [Group Anagrams](problems/arrays-and-hashing/group-anagrams) | Medium | Implemented |
 
 ## Running the tests
