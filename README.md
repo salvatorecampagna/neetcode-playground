@@ -34,6 +34,12 @@ stub, and tests that are disabled until the solution is written.
 | [Encode and Decode Strings](problems/arrays-and-hashing/encode-and-decode-strings) | Medium | Implemented |
 | [Products of Array Except Self](problems/arrays-and-hashing/products-of-array-except-self) | Medium | Implemented |
 
+### Two Pointers
+
+| Problem | Difficulty | Status |
+|---|---|---|
+| [Two Integer Sum II](problems/two-pointers/two-integer-sum-ii) | Medium | Implemented |
+
 ## Running the tests
 
 Requires JDK 25. The Gradle wrapper downloads Gradle on first use.
