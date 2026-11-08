@@ -9,43 +9,35 @@ import java.util.NoSuchElementException;
 class DynamicArrayTest {
 
     @Test
-    void example1() {
-        var da = new DynamicArray(1);
+    void newArrayIsEmpty() {
+        var da = new DynamicArray(3);
 
         Assertions.assertEquals(0, da.getSize());
-        Assertions.assertEquals(1, da.getCapacity());
+        Assertions.assertEquals(3, da.getCapacity());
     }
 
     @Test
-    void example2() {
-        var da = new DynamicArray(1);
+    void pushDoublesCapacityWhenFull() {
+        var da = new DynamicArray(2);
 
         da.pushback(1);
-        Assertions.assertEquals(1, da.getCapacity());
         da.pushback(2);
         Assertions.assertEquals(2, da.getCapacity());
+        da.pushback(3);
+        Assertions.assertEquals(4, da.getCapacity());
     }
 
     @Test
-    void example3() {
-        var da = new DynamicArray(1);
+    void getSetAndPopBack() {
+        var da = new DynamicArray(2);
 
-        Assertions.assertEquals(0, da.getSize());
-        Assertions.assertEquals(1, da.getCapacity());
+        da.pushback(5);
+        da.pushback(6);
+        Assertions.assertEquals(6, da.get(1));
+        da.set(1, 8);
+        Assertions.assertEquals(8, da.get(1));
 
-        da.pushback(1);
-        Assertions.assertEquals(1, da.getSize());
-        Assertions.assertEquals(1, da.getCapacity());
-
-        da.pushback(2);
-        Assertions.assertEquals(2, da.getSize());
-        Assertions.assertEquals(2, da.getCapacity());
-
-        Assertions.assertEquals(2, da.get(1));
-        da.set(1, 3);
-        Assertions.assertEquals(3, da.get(1));
-
-        Assertions.assertEquals(3, da.popback());
+        Assertions.assertEquals(8, da.popback());
         Assertions.assertEquals(1, da.getSize());
         Assertions.assertEquals(2, da.getCapacity());
     }
