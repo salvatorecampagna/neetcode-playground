@@ -35,20 +35,20 @@ class ValidAnagramTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(BiPredicate<String, String> isAnagram) {
-        assertTrue(isAnagram.test("racecar", "carrace"));
+    void anagramsOfSameLength(BiPredicate<String, String> isAnagram) {
+        assertTrue(isAnagram.test("listen", "silent"));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(BiPredicate<String, String> isAnagram) {
-        assertFalse(isAnagram.test("jar", "jam"));
+    void differentLastLetter(BiPredicate<String, String> isAnagram) {
+        assertFalse(isAnagram.test("cat", "car"));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example3(BiPredicate<String, String> isAnagram) {
-        assertTrue(isAnagram.test("x", "x"));
+    void singleSameLetter(BiPredicate<String, String> isAnagram) {
+        assertTrue(isAnagram.test("q", "q"));
     }
 
     @ParameterizedTest
