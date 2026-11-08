@@ -40,6 +40,7 @@ stub, and tests that are disabled until the solution is written.
 |---|---|---|
 | [Two Integer Sum II](problems/two-pointers/two-integer-sum-ii) | Medium | Implemented |
 | [Sort Array by Parity](problems/two-pointers/sort-array-by-parity) | Easy | Implemented |
+| [Container With Most Water](problems/two-pointers/container-with-most-water) | Medium | Implemented |
 
 ## Running the tests
 
