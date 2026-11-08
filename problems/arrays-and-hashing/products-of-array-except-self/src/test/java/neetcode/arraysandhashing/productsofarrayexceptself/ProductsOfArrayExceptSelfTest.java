@@ -23,14 +23,14 @@ class ProductsOfArrayExceptSelfTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(UnaryOperator<int[]> productExceptSelf) {
-        assertArrayEquals(new int[] {48, 24, 12, 8}, productExceptSelf.apply(new int[] {1, 2, 4, 6}));
+    void positiveValues(UnaryOperator<int[]> productExceptSelf) {
+        assertArrayEquals(new int[] {105, 70, 42, 30}, productExceptSelf.apply(new int[] {2, 3, 5, 7}));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(UnaryOperator<int[]> productExceptSelf) {
-        assertArrayEquals(new int[] {0, -6, 0, 0, 0}, productExceptSelf.apply(new int[] {-1, 0, 1, 2, 3}));
+    void singleZeroWithNegative(UnaryOperator<int[]> productExceptSelf) {
+        assertArrayEquals(new int[] {0, -24, 0, 0}, productExceptSelf.apply(new int[] {-2, 0, 3, 4}));
     }
 
     @ParameterizedTest
