@@ -28,8 +28,8 @@ class TwoIntegerSumIITest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(TwoSumMethod twoSum) {
-        assertArrayEquals(new int[] {1, 2}, twoSum.apply(new int[] {1, 2, 3, 4}, 3));
+    void adjacentPairAtTheStart(TwoSumMethod twoSum) {
+        assertArrayEquals(new int[] {1, 2}, twoSum.apply(new int[] {2, 5, 9, 12}, 7));
     }
 
     @ParameterizedTest
