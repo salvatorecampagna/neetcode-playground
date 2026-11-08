@@ -26,14 +26,14 @@ class ContainerWithMostWaterTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(ToIntFunction<int[]> maxArea) {
-        assertEquals(36, maxArea.applyAsInt(new int[] {1, 7, 2, 5, 4, 7, 3, 6}));
+    void bestPairInsideTheArray(ToIntFunction<int[]> maxArea) {
+        assertEquals(24, maxArea.applyAsInt(new int[] {2, 9, 1, 3, 8, 4}));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(ToIntFunction<int[]> maxArea) {
-        assertEquals(4, maxArea.applyAsInt(new int[] {2, 2, 2}));
+    void equalHeights(ToIntFunction<int[]> maxArea) {
+        assertEquals(9, maxArea.applyAsInt(new int[] {3, 3, 3, 3}));
     }
 
     @ParameterizedTest
