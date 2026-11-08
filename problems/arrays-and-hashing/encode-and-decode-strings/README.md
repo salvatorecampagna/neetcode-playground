@@ -16,8 +16,8 @@ string content:
 
 - **`encode`:** write the number of strings as 2 digits, then, for each
   string, its length as 3 digits followed by the string itself. Numbers are
-  padded with leading zeros, so `["Hello", "World"]` becomes
-  `02005Hello005World`.
+  padded with leading zeros, so `["Java", "Gradle"]` becomes
+  `02004Java006Gradle`.
 - **`decode`:** read the 2-digit count, then, for each string, read the
   3-digit length `m` and take the next `m` characters with `substring`.
 

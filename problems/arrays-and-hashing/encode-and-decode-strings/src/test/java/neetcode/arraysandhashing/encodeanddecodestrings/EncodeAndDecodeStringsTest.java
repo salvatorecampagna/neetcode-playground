@@ -28,13 +28,13 @@ class EncodeAndDecodeStringsTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(Codec codec) {
-        assertRoundTrip(codec, List.of("Hello", "World"));
+    void twoWords(Codec codec) {
+        assertRoundTrip(codec, List.of("Java", "Gradle"));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(Codec codec) {
+    void singleEmptyString(Codec codec) {
         assertRoundTrip(codec, List.of(""));
     }
 
