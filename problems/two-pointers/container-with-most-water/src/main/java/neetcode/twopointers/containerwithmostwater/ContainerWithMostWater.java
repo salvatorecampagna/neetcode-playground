@@ -28,7 +28,7 @@ class ContainerWithMostWater {
     }
 
     int maxAreaNestedLoops(int[] heights) {
-        int maxWater = -1;
+        int maxWater = 0;
         for (int i = 0; i < heights.length; i++) {
             for (int j = i + 1; j < heights.length; j++) {
                 int water = Math.min(heights[i], heights[j]) * (j - i);
