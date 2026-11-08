@@ -28,20 +28,20 @@ class TwoSumTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(TwoSumMethod twoSum) {
-        assertArrayEquals(new int[] {0, 1}, twoSum.apply(new int[] {3, 4, 5, 6}, 7));
+    void pairOfFirstTwo(TwoSumMethod twoSum) {
+        assertArrayEquals(new int[] {0, 1}, twoSum.apply(new int[] {2, 9, 11, 15}, 11));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(TwoSumMethod twoSum) {
-        assertArrayEquals(new int[] {0, 2}, twoSum.apply(new int[] {4, 5, 6}, 10));
+    void pairSkippingTheMiddle(TwoSumMethod twoSum) {
+        assertArrayEquals(new int[] {0, 2}, twoSum.apply(new int[] {1, 8, 6}, 7));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example3(TwoSumMethod twoSum) {
-        assertArrayEquals(new int[] {0, 1}, twoSum.apply(new int[] {5, 5}, 10));
+    void equalPair(TwoSumMethod twoSum) {
+        assertArrayEquals(new int[] {0, 1}, twoSum.apply(new int[] {7, 7}, 14));
     }
 
     @ParameterizedTest
