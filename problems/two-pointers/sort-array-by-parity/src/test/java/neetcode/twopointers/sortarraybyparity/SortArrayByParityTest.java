@@ -22,14 +22,14 @@ class SortArrayByParityTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(UnaryOperator<int[]> sortArrayByParity) {
-        assertEvensBeforeOdds(new int[] {3, 1, 2, 4}, sortArrayByParity);
+    void mixedParity(UnaryOperator<int[]> sortArrayByParity) {
+        assertEvensBeforeOdds(new int[] {7, 4, 5, 8, 2}, sortArrayByParity);
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(UnaryOperator<int[]> sortArrayByParity) {
-        assertEvensBeforeOdds(new int[] {0}, sortArrayByParity);
+    void singleEvenValue(UnaryOperator<int[]> sortArrayByParity) {
+        assertEvensBeforeOdds(new int[] {6}, sortArrayByParity);
     }
 
     @ParameterizedTest
