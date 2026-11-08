@@ -39,6 +39,7 @@ stub, and tests that are disabled until the solution is written.
 | Problem | Difficulty | Status |
 |---|---|---|
 | [Two Integer Sum II](problems/two-pointers/two-integer-sum-ii) | Medium | Implemented |
+| [Sort Array by Parity](problems/two-pointers/sort-array-by-parity) | Easy | Implemented |
 
 ## Running the tests
 
