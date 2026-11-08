@@ -26,14 +26,14 @@ class ContainsDuplicateTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(Predicate<int[]> hasDuplicate) {
-        assertTrue(hasDuplicate.test(new int[] {1, 2, 3, 3}));
+    void duplicateAtTheEnd(Predicate<int[]> hasDuplicate) {
+        assertTrue(hasDuplicate.test(new int[] {5, 8, 2, 8}));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(Predicate<int[]> hasDuplicate) {
-        assertFalse(hasDuplicate.test(new int[] {1, 2, 3, 4}));
+    void allDistinct(Predicate<int[]> hasDuplicate) {
+        assertFalse(hasDuplicate.test(new int[] {6, 1, 9, 4}));
     }
 
     @ParameterizedTest
