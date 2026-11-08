@@ -26,14 +26,14 @@ class TopKFrequentElementsTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(TopKFrequentMethod topKFrequent) {
-        assertSameElements(new int[] {2, 3}, topKFrequent.apply(new int[] {1, 2, 2, 3, 3, 3}, 2));
+    void twoMostFrequent(TopKFrequentMethod topKFrequent) {
+        assertSameElements(new int[] {4, 5}, topKFrequent.apply(new int[] {5, 5, 5, 9, 9, 4, 4, 4, 4}, 2));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(TopKFrequentMethod topKFrequent) {
-        assertSameElements(new int[] {7}, topKFrequent.apply(new int[] {7, 7}, 1));
+    void singleDistinctValue(TopKFrequentMethod topKFrequent) {
+        assertSameElements(new int[] {-3}, topKFrequent.apply(new int[] {-3, -3, -3}, 1));
     }
 
     @ParameterizedTest
