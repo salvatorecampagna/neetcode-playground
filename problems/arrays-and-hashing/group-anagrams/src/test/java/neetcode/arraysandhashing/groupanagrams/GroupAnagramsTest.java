@@ -26,21 +26,21 @@ class GroupAnagramsTest {
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example1(Function<String[], List<List<String>>> groupAnagrams) {
+    void wordsInSeveralGroups(Function<String[], List<List<String>>> groupAnagrams) {
         assertSameGroups(
-                List.of(List.of("hat"), List.of("act", "cat"), List.of("stop", "pots", "tops")),
-                groupAnagrams.apply(new String[] {"act", "pots", "tops", "cat", "stop", "hat"}));
+                List.of(List.of("listen", "silent", "enlist"), List.of("google", "gogole"), List.of("banana")),
+                groupAnagrams.apply(new String[] {"listen", "silent", "enlist", "google", "banana", "gogole"}));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example2(Function<String[], List<List<String>>> groupAnagrams) {
-        assertSameGroups(List.of(List.of("x")), groupAnagrams.apply(new String[] {"x"}));
+    void singleOneLetterString(Function<String[], List<List<String>>> groupAnagrams) {
+        assertSameGroups(List.of(List.of("q")), groupAnagrams.apply(new String[] {"q"}));
     }
 
     @ParameterizedTest
     @MethodSource("implementations")
-    void example3(Function<String[], List<List<String>>> groupAnagrams) {
+    void singleEmptyString(Function<String[], List<List<String>>> groupAnagrams) {
         assertSameGroups(List.of(List.of("")), groupAnagrams.apply(new String[] {""}));
     }
 
