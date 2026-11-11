@@ -42,6 +42,12 @@ stub, and tests that are disabled until the solution is written.
 | [Sort Array by Parity](problems/two-pointers/sort-array-by-parity) | Easy | Implemented |
 | [Container With Most Water](problems/two-pointers/container-with-most-water) | Medium | Implemented |
 
+### Sliding Window
+
+| Problem | Difficulty | Status |
+|---|---|---|
+| [Best Time to Buy and Sell Stock](problems/sliding-window/best-time-to-buy-and-sell-stock) | Easy | Implemented |
+
 ## Running the tests
 
 Requires JDK 25. The Gradle wrapper downloads Gradle on first use.
